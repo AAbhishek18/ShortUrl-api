@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGO_URL, {
     
 
 app.use('/', route);//use the route.js file for all the routes. This is a middleware. 
+app.app("*",(req,res)=>{
+  res.status(404).json({status:false,message:"API not found"})
 app.listen(process.env.PORT || 3000, function () {
     console.log('Express app running on port' + (process.env.PORT || 3000))
 });//listen to the port 3000
